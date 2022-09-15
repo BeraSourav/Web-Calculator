@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CALCULATOR</title>
+	<style type="text/css">
+		html{
+			background-color: black;
+		}
+		table{
+			background-color: #1c1a1a;
+			font-size: 5px;
+			border: solid white 1px;
+			position: center;
+		}
+		input[type="button"]{
+			background-color: black;
+			color: white;
+			border: solid grey 2px;
+			width: 100%;
+		}
+		input[type="button"]:hover{
+			background-color: white;
+			color: black;
+			font-weight:bolder;
+		}
+		
+
+	</style>
+</head>
+<body>
+<table border="0">
+	<tr>
+		<td colspan="3"><input type="text" id="result"></td>
+		<td><input type="button" value="C" onclick="clr()"></td>
+	</tr>
+	<tr>
+		<td colspan="3"><input type="text" id="result1" oneclick="display('Only for x^(1/y')"></td>
+		<td><input type="button" value="BYE" onclick="open(location,'_self').close()"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="1" onclick="display('1')"></td>
+		<td><input type="button" value="2" onclick="display('2')"></td>
+		<td><input type="button" value="3" onclick="display('3')"></td>
+		<td><input type="button" value="+" onclick="display('+')"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="4" onclick="display('4')"></td>
+		<td><input type="button" value="5" onclick="display('5')"></td>
+		<td><input type="button" value="6" onclick="display('6')"></td>
+		<td><input type="button" value="-" onclick="display('-')"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="7" onclick="display('7')"></td>
+		<td><input type="button" value="8" onclick="display('8')"></td>
+		<td><input type="button" value="9" onclick="display('9')"></td>
+		<td><input type="button" value="/" onclick="display('/')"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="*" onclick="display('*')"></td>
+		<td><input type="button" value="0" onclick="display('0')"></td>
+		<td><input type="button" value="." onclick="display('.')"></td>
+		<td><input type="button" value="sin" onclick="sin()"></td>		
+	</tr>
+	<tr>
+		<td><input type="button" value="^" onclick="display('**')"></td>
+		<td><input type="button" value="(" onclick="display('(')"></td>
+		<td><input type="button" value=")" onclick="display(')')"></td>
+		<td><input type="button" value="=" onclick="equate()"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="cos" onclick="cos()"></td>
+		<td><input type="button" value="tan" onclick="tan()"></td>
+		<td><input type="button" value="iCos" onclick="iCos()"></td>
+		<td><input type="button" value="iSin" onclick="iSin()"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="root" onclick="display('**0.5')"></td>
+		<td><input type="button" value="iTan" onclick="itan()"></td>
+		<td><input type="button" value="^2" onclick="display('**2')"></td>
+		<td><input type="button" value="delete" onclick="back()"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="tanH" onclick="tanH()"></td>
+		<td><input type="button" value="cosH" onclick="cosH()"></td>
+		<td><input type="button" value="sinH" onclick="sinH()"></td>
+		<td><input type="button" value="exp" onclick="Exp()"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="ln" onclick="Ln()"></td>
+		<td><input type="button" value="X!" onclick="Fact()"></td>
+		<td><input type="button" value="%" onclick="Per()"></td>
+		<td><input type="button" value="x^(1/y)" onclick="xxx()"></td>
+	</tr>
+
+	
+
+	
+</table>
+<script type="text/javascript">
+	
+
+	function clr(){
+		document.getElementById("result").value="";
+		document.getElementById("result1").value="";
+	}
+	function display2(val){
+		document.getElementById("result").value+=val;
+		document.getElementById("result1").value = "THANK YOU FOR USING";
+	}
+	
+	function display(val){
+		document.getElementById("result").value+=val;
+	}
+	function equate(){
+		let x = document.getElementById("result").value;
+		let y = eval(x);
+		document.getElementById("result").value = y;
+	}
+	function sin(){
+		const pi = Math.PI;
+		let m = document.getElementById("result").value;
+		let n = Math.sin(m*pi/180).toFixed(12);
+		document.getElementById("result").value = n;
+	}
+	function cos(){
+		const pi = Math.PI;
+		let m1 = document.getElementById("result").value;
+		let n1 = Math.cos((m1*pi)/180).toFixed(12);
+		document.getElementById("result").value = n1;
+	}
+	function tan(){
+		const pi = Math.PI;
+		let m2 = document.getElementById("result").value;
+		let n2 = Math.tan(m2*pi/180).toFixed(12);
+		let nn
+		if(n2>=16331239353195370){
+			nn = "Error";
+		}else{
+			nn = n2;
+		}
+		
+		document.getElementById("result").value = nn;
+	}
+	function iSin(){
+		const pi = Math.PI;
+		let m3 = document.getElementById("result").value;
+		let n3 = Math.asin(m3);
+		document.getElementById("result").value = (180*n3/pi).toFixed(6);
+	}
+	function iCos(){
+		const pi = Math.PI;
+		let m4 = document.getElementById("result").value;
+		let n4 = Math.acos(m4);
+		document.getElementById("result").value = (180*n4/pi).toFixed(6);
+	}
+	function itan(){
+		const pi = Math.PI;
+		let m5 = document.getElementById("result").value;
+		let n5 = Math.atan(m5);
+		document.getElementById("result").value = (180*n5/pi).toFixed(6);
+	}
+	function sinH(){
+		const pi = Math.PI;
+		let m7 = document.getElementById("result").value;
+		let n7 = Math.sinh(m7).toFixed(12);
+		document.getElementById("result").value = n7;
+	}
+	function cosH(){
+		const pi = Math.PI;
+		let m7 = document.getElementById("result").value;
+		let n7 = Math.cosh(m7).toFixed(12);
+		document.getElementById("result").value = n7;
+	}
+	function tanH(){
+		const pi = Math.PI;
+		let m7 = document.getElementById("result").value;
+		let n7 = Math.tanh(m7).toFixed(12);
+		document.getElementById("result").value = n7;
+	}
+	function Exp(){
+		let p = document.getElementById("result").value;
+		let q = Math.exp(p);
+		document.getElementById("result").value = q;
+	}
+	function xxx(){
+		let pp = document.getElementById("result").value;
+		let qq = document.getElementById("result1").value;
+		let ss = pp**(1/qq) ;
+		document.getElementById("result").value = ss;
+		document.getElementById("result1").value = ss;
+	}
+
+	function Ln(){
+		let gg = document.getElementById("result").value;
+		let ff = Math.log(gg);
+		document.getElementById("result").value = ff;
+	}
+	function Fact(){
+		let f = document.getElementById("result").value;
+		let g = 1;
+		if(f == 1 || f == 0){
+			g = 1*g;
+		}else if(f>=2){
+			for(var i=2;i<=f;i++){
+				g = g * i;
+			} 
+		}
+		if(f == 0 || f ==1 || f>=2){
+			document.getElementById("result").value = g.toFixed(12);
+		}else{
+			document.getElementById("result").value = "Error";
+		}
+	}
+
+	function Per(){
+		let p1 = document.getElementById("result").value;
+		let q1 = (p1/100);
+		document.getElementById("result").value  = q1 +" %";
+	}
+
+	function back(){
+		let m6 = document.getElementById("result").value;
+		let n6 = m6.substring(0,m6.length-1);
+		document.getElementById("result").value=n6;
+	}
+</script>
+
+</body>
+</html>
